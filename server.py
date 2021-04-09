@@ -3,6 +3,7 @@ import selectors
 import main
 import client
 
+
 def start(selector):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -11,7 +12,6 @@ def start(selector):
     selector.register(fileobj=server_socket, events=selectors.EVENT_READ, data=accept_connection(server_socket, selector))
 
 def accept_connection(server_socket, selector):
-    print('hello')
     client_socket, addr = server_socket.accept()
     print('Connection from', addr)
     response = 'Wellcome my Server\n'.encode()
