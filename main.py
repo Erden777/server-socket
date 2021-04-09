@@ -2,7 +2,7 @@ import selectors
 import server
 
 selector = selectors.DefaultSelector()
-
+print('Hello')
 def event_loop():
     while True:
         events = selector.select()
